@@ -18,6 +18,7 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
+  // const [userData, setUserData] = useState(null);
   const userData = useAuth();
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -40,6 +41,19 @@ const AuthProvider = ({ children }) => {
       return unsubscribe();
     };
   }, [user]);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const res = await useAxiosBaseUrl.get(`/user`, {
+  //       params: { email: user.email },
+  //     });
+  //     setUserData(res.data);
+  //     console(userData);
+  //   };
+  //   if (user?.email) {
+  //     fetchData();
+  //   }
+  // }, [user, userData]);
 
   // create user
   const newUser = (email, password) => {

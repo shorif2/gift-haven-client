@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import useAxiosBaseUrl from "../../hooks/useAxiosBaseUrl";
+import { useShop } from "../../hooks/useShop";
 
-const SideBar = ({ setSearchTerm, setCategory, setSort }) => {
+const SideBar = () => {
+  const { setSearchTerm, setCategory, setSort } = useShop();
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     const fetchCategory = async () => {
