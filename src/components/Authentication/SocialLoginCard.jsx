@@ -2,11 +2,8 @@ import useAuth from "../../hooks/useAuth";
 
 const SocialLoginCard = ({ type }) => {
   const { googleSingIn } = useAuth();
-  const handleGoogleSignIn = () => {
-    googleSingIn().then((res) => {
-      console.log(res);
-      console.log(type);
-    });
+  const handleGoogleSign = () => {
+    googleSingIn();
   };
   return (
     <div className="mt-4 flex gap-4">
@@ -14,7 +11,7 @@ const SocialLoginCard = ({ type }) => {
         facebook
       </button>
       <button
-        onClick={() => handleGoogleSignIn()}
+        onClick={() => handleGoogleSign()}
         className="w-1/2 py-2 text-center text-white bg-red-600 rounded uppercase font-roboto font-medium text-sm hover:bg-red-500"
       >
         google

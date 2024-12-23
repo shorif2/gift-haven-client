@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  signInWithRedirect,
   GoogleAuthProvider,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
@@ -20,8 +21,6 @@ const AuthProvider = ({ children }) => {
   const userData = useAuth();
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      //   const user = currentUser?.email || user?.email;
-      //   const loggedUser = { email: user };
       setUser(currentUser);
       if (currentUser) {
         useAxiosBaseUrl
@@ -29,12 +28,12 @@ const AuthProvider = ({ children }) => {
           .then((data) => {
             if (data.data) {
               localStorage.setItem("access-token", data?.data.token);
-              //setloading (false)
+              setLoading(false);
             }
           });
       } else {
         localStorage.removeItem("acccess-token");
-        //setloading (false)
+        setLoading(false);
       }
     });
     return () => {
@@ -62,6 +61,13 @@ const AuthProvider = ({ children }) => {
     const googleProvider = new GoogleAuthProvider();
     return signInWithPopup(auth, googleProvider);
   };
+
+  //google sign-in 2
+
+  const handleGoogleSignIn = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithRedirect(auth, provider);
+  };
   const authInfo = {
     newUser,
     loading,
@@ -70,6 +76,7 @@ const AuthProvider = ({ children }) => {
     logout,
     googleSingIn,
     userData,
+    handleGoogleSignIn,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

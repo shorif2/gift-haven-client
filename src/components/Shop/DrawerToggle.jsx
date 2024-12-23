@@ -8,7 +8,8 @@ const DrawerToggle = () => {
         data-drawer-show="drawer-example"
         aria-controls="drawer-example"
       >
-        <ion-icon name="grid-outline"></ion-icon>
+        <i className="fa-solid fa-chevron-right"></i>
+        <i className="fa-solid fa-chevron-right"></i>
       </button>
     </div>
   );

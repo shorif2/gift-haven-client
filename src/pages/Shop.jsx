@@ -15,6 +15,7 @@ const Shop = () => {
   const [category, setCategory] = useState("");
   const [sort, setSort] = useState("asc");
   const [pageNumber, setPageNumber] = useState(1);
+  const [drawer, setDrawer] = useState(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -35,7 +36,8 @@ const Shop = () => {
       <Breadcrumb />
       <div className="container grid md:grid-cols-4 grid-cols-2 gap-6 pt-4 pb-16 items-start">
         <DrawerToggle />
-        <Drawer />
+        {<Drawer />}
+
         <SideBar
           setSearchTerm={setSearchTerm}
           setSort={setSort}

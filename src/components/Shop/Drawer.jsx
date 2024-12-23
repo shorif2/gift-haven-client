@@ -1,11 +1,6 @@
 const Drawer = () => {
   return (
-    <div
-      id="drawer-example"
-      className="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-80 dark:bg-gray-800"
-      tabIndex="-1"
-      aria-labelledby="drawer-label"
-    >
+    <div className="fixed top-0 left-0 z-10 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-80 ">
       <h5
         id="drawer-label"
         className="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400"
