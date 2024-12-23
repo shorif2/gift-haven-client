@@ -3,7 +3,7 @@ import Breadcrumb from "../components/Shop/Breadcrumb";
 import Drawer from "../components/Shop/Drawer";
 import DrawerToggle from "../components/Shop/DrawerToggle";
 import SideBar from "../components/Shop/SideBar";
-import ShopCard from "../components/shopCard";
+import ShopCard from "../components/ShopCard";
 import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
 import useUserData from "../hooks/useUserData";
 import Pagination from "../components/Shop/Pagination";
