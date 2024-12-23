@@ -12,8 +12,8 @@ const Navbar = () => {
     <div className="bg-gray-800">
       <div className="container flex z-100">
         <NavCatagories />
-        <div className="flex items-center justify-between flex-grow md:pl-12 py-5">
-          <div className="flex items-center space-x-6 capitalize">
+        <div className="flex items-center justify-between flex-grow  md:pl-12 py-5">
+          <div className="flex flex-col md:flex-row items-start md:items-center space-x-6 text-center capitalize">
             <NavLink
               to="/"
               className="text-gray-200 hover:text-white transition"

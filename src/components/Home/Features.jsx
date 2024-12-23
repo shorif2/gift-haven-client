@@ -4,7 +4,7 @@ const Features = () => {
       <div className="w-10/12 grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto justify-center">
         <div className="border border-primary rounded-sm px-3 py-6 flex justify-center items-center gap-5">
           <img
-            src="public/images/icons/delivery-van.svg"
+            src="/images/icons/delivery-van.svg"
             alt="Delivery"
             className="w-12 h-12 object-contain"
           />
@@ -15,7 +15,7 @@ const Features = () => {
         </div>
         <div className="border border-primary rounded-sm px-3 py-6 flex justify-center items-center gap-5">
           <img
-            src="public/images/icons/money-back.svg"
+            src="/images/icons/money-back.svg"
             alt="Delivery"
             className="w-12 h-12 object-contain"
           />
@@ -26,7 +26,7 @@ const Features = () => {
         </div>
         <div className="border border-primary rounded-sm px-3 py-6 flex justify-center items-center gap-5">
           <img
-            src="public/images/icons/service-hours.svg"
+            src="/images/icons/service-hours.svg"
             alt="Delivery"
             className="w-12 h-12 object-contain"
           />

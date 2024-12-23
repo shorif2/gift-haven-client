@@ -11,12 +11,9 @@ const Categories = () => {
             alt="category 1"
             className="w-full"
           />
-          <a
-            href="#"
-            className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
-          >
+          <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition">
             Bedroom
-          </a>
+          </div>
         </div>
         <div className="relative rounded-sm overflow-hidden group">
           <img
@@ -24,12 +21,9 @@ const Categories = () => {
             alt="category 1"
             className="w-full"
           />
-          <a
-            href="#"
-            className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
-          >
+          <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition">
             Mattrass
-          </a>
+          </div>
         </div>
         <div className="relative rounded-sm overflow-hidden group">
           <img
@@ -37,12 +31,9 @@ const Categories = () => {
             alt="category 1"
             className="w-full"
           />
-          <a
-            href="#"
-            className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
-          >
+          <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition">
             Outdoor
-          </a>
+          </div>
         </div>
         <div className="relative rounded-sm overflow-hidden group">
           <img
@@ -50,12 +41,9 @@ const Categories = () => {
             alt="category 1"
             className="w-full"
           />
-          <a
-            href="#"
-            className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
-          >
+          <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition">
             Sofa
-          </a>
+          </div>
         </div>
         <div className="relative rounded-sm overflow-hidden group">
           <img
@@ -63,10 +51,7 @@ const Categories = () => {
             alt="category 1"
             className="w-full"
           />
-          <a
-            href="#"
-            className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
-          >
+          <a className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition">
             Living Room
           </a>
         </div>
@@ -76,12 +61,9 @@ const Categories = () => {
             alt="category 1"
             className="w-full"
           />
-          <a
-            href="#"
-            className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition"
-          >
+          <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center text-xl text-white font-roboto font-medium group-hover:bg-opacity-60 transition">
             Kitchen
-          </a>
+          </div>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ const Banner = () => {
     <div
       className="bg-cover bg-no-repeat bg-center py-36"
       //   style="background-image: url('assets/images/banner-bg.jpg');"
-      style={{ backgroundImage: "url('public/images/banner-bg.jpg')" }}
+      style={{ backgroundImage: "url('/images/banner-bg.jpg')" }}
     >
       <div className="container">
         <h1 className="text-6xl text-gray-800 font-medium mb-4 capitalize">
@@ -16,13 +16,12 @@ const Banner = () => {
           odio
         </p>
         <div className="mt-12">
-          <a
-            href="#"
+          <button
             className="bg-primary border border-primary text-white px-8 py-3 font-medium 
               rounded-md hover:bg-transparent hover:text-primary"
           >
             Shop Now
-          </a>
+          </button>
         </div>
       </div>
     </div>
