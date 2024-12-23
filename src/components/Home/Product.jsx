@@ -1,4 +1,4 @@
-import ShopCard from "../shopCard";
+import ShopCard from "../ShopCard";
 
 const Product = () => {
   return (

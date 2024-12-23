@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Breadcrumb from "../components/Shop/Breadcrumb";
 import ProductDetailsSection from "../components/ProductDetails/ProductDetailsSection";
 import Description from "../components/ProductDetails/Description";
-import ShopCard from "../components/shopCard";
+import ShopCard from "../components/ShopCard";
 import { useSearchParams } from "react-router-dom";
 import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
 
