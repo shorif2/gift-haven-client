@@ -1,0 +1,202 @@
+[
+  {
+    "name": "Red Roses Bouquet",
+    "price": 25.99,
+    "ratings": 4.8,
+    "category": "Flowers",
+    "description": "A bouquet of fresh red roses, perfect for expressing love.",
+    "colors": ["Red"],
+    "quantity": 50,
+    "email": "seller1@gmail.com"
+  },
+  {
+    "name": "Tulip Mix",
+    "price": 19.99,
+    "ratings": 4.6,
+    "category": "Flowers",
+    "description": "A vibrant mix of tulips for any occasion.",
+    "colors": ["Yellow", "Pink", "White"],
+    "quantity": 30,
+    "email": "seller2@gmail.com"
+  },
+  {
+    "name": "Orchid Basket",
+    "price": 29.99,
+    "ratings": 4.7,
+    "category": "Flowers",
+    "description": "Exquisite orchids arranged in a decorative basket.",
+    "colors": ["Purple", "White"],
+    "quantity": 20,
+    "email": "seller3@gmail.com"
+  },
+  {
+    "name": "Ceramic Vase",
+    "price": 15.99,
+    "ratings": 4.5,
+    "category": "Home Decor",
+    "description": "A stylish ceramic vase to enhance your living space.",
+    "colors": ["Blue", "White"],
+    "quantity": 40,
+    "email": "seller1@gmail.com"
+  },
+  {
+    "name": "Wall Art Set",
+    "price": 45.99,
+    "ratings": 4.9,
+    "category": "Home Decor",
+    "description": "A set of three abstract wall art pieces.",
+    "colors": ["Black", "Gold"],
+    "quantity": 25,
+    "email": "seller2@gmail.com"
+  },
+  {
+    "name": "Wooden Lamp",
+    "price": 35.99,
+    "ratings": 4.6,
+    "category": "Home Decor",
+    "description": "A handcrafted wooden lamp with a warm glow.",
+    "colors": ["Brown"],
+    "quantity": 15,
+    "email": "seller3@gmail.com"
+  },
+  {
+    "name": "Charm Bracelet",
+    "price": 12.99,
+    "ratings": 4.8,
+    "category": "Bracelets",
+    "description": "A delicate bracelet adorned with various charms.",
+    "colors": ["Silver"],
+    "quantity": 100,
+    "email": "seller1@gmail.com"
+  },
+  {
+    "name": "Beaded Bracelet",
+    "price": 9.99,
+    "ratings": 4.5,
+    "category": "Bracelets",
+    "description": "A colorful bracelet made of high-quality beads.",
+    "colors": ["Multicolor"],
+    "quantity": 80,
+    "email": "seller2@gmail.com"
+  },
+  {
+    "name": "Classic Leather Watch",
+    "price": 89.99,
+    "ratings": 4.7,
+    "category": "Watches",
+    "description": "A timeless watch with a leather strap.",
+    "colors": ["Brown", "Black"],
+    "quantity": 60,
+    "email": "seller3@gmail.com"
+  },
+  {
+    "name": "Digital Sports Watch",
+    "price": 49.99,
+    "ratings": 4.4,
+    "category": "Watches",
+    "description": "A rugged digital watch for an active lifestyle.",
+    "colors": ["Black", "Blue"],
+    "quantity": 75,
+    "email": "seller1@gmail.com"
+  },
+  {
+    "name": "Gold Analog Watch",
+    "price": 120.99,
+    "ratings": 4.9,
+    "category": "Watches",
+    "description": "A luxurious gold-plated analog watch.",
+    "colors": ["Gold"],
+    "quantity": 20,
+    "email": "seller2@gmail.com"
+  },
+  {
+    "name": "Diamond Pendant",
+    "price": 199.99,
+    "ratings": 4.9,
+    "category": "Necklaces",
+    "description": "A stunning diamond pendant necklace.",
+    "colors": ["Silver"],
+    "quantity": 10,
+    "email": "seller3@gmail.com"
+  },
+  {
+    "name": "Sapphire Necklace",
+    "price": 149.99,
+    "ratings": 4.8,
+    "category": "Necklaces",
+    "description": "A beautiful necklace with a sapphire centerpiece.",
+    "colors": ["Blue"],
+    "quantity": 15,
+    "email": "seller1@gmail.com"
+  },
+  {
+    "name": "Emerald Pendant",
+    "price": 129.99,
+    "ratings": 4.7,
+    "category": "Necklaces",
+    "description": "An elegant pendant featuring a genuine emerald.",
+    "colors": ["Green"],
+    "quantity": 20,
+    "email": "seller2@gmail.com"
+  },
+  {
+    "name": "Wedding Flower Arrangement",
+    "price": 89.99,
+    "ratings": 4.8,
+    "category": "Wedding",
+    "description": "A stunning floral arrangement for wedding decorations.",
+    "colors": ["White", "Pink"],
+    "quantity": 35,
+    "email": "seller3@gmail.com"
+  },
+  {
+    "name": "Wedding Centerpiece",
+    "price": 55.99,
+    "ratings": 4.7,
+    "category": "Wedding",
+    "description": "Elegant wedding table centerpiece.",
+    "colors": ["Gold", "White"],
+    "quantity": 25,
+    "email": "seller1@gmail.com"
+  },
+  {
+    "name": "Wedding Bouquet",
+    "price": 65.99,
+    "ratings": 4.9,
+    "category": "Wedding",
+    "description": "A hand-tied bouquet for the bride.",
+    "colors": ["Red", "White"],
+    "quantity": 15,
+    "email": "seller2@gmail.com"
+  },
+  {
+    "name": "Anniversary Flower Vase",
+    "price": 29.99,
+    "ratings": 4.6,
+    "category": "Anniversary",
+    "description": "A thoughtful flower vase for anniversaries.",
+    "colors": ["Yellow", "Orange"],
+    "quantity": 40,
+    "email": "seller3@gmail.com"
+  },
+  {
+    "name": "Anniversary Necklace",
+    "price": 89.99,
+    "ratings": 4.8,
+    "category": "Anniversary",
+    "description": "A stunning necklace for a memorable anniversary.",
+    "colors": ["Silver"],
+    "quantity": 30,
+    "email": "seller1@gmail.com"
+  },
+  {
+    "name": "Wedding Anniversary Gift Set",
+    "price": 119.99,
+    "ratings": 4.9,
+    "category": "Anniversary",
+    "description": "A luxurious gift set for wedding anniversaries.",
+    "colors": ["Gold", "Red"],
+    "quantity": 20,
+    "email": "seller2@gmail.com"
+  }
+]
