@@ -7,7 +7,7 @@ import Shop from "../pages/Shop";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import DashboardLayout from "../layout/DashboardLayout";
-import UserDashHome from "../userDashboard/userDashHome";
+import UserDashHome from "../userDashboard/UserDashHome";
 import AddProduct from "../userDashboard/AddProduct";
 import Wishlist from "../userDashboard/Wishlist";
 import Cart from "../userDashboard/Cart";
@@ -60,7 +60,3 @@ const router = createBrowserRouter([
 ]);
 
 export default router;
-
-//<Link to={`/update-product/${_id}`}>
-//loader: ({params})=> fetch(`https://technology-today-server.vercel.app/product/${params.id}`)
-//path:'/update-product/:id',
