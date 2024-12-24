@@ -2,11 +2,9 @@ import { NavLink } from "react-router-dom";
 import NavCatagories from "./NavCatagories";
 import useAuth from "../hooks/useAuth";
 import Logout from "./Logout";
-import useUserData from "../hooks/useUserData";
 
 const Navbar = () => {
-  const { user } = useAuth();
-  const userData = useUserData();
+  const { user, userDetails } = useAuth();
 
   return (
     <div className="bg-gray-800">
@@ -41,7 +39,7 @@ const Navbar = () => {
           </div>
           {user ? (
             <div>
-              <span className="mx-1 text-white"> {userData?.name} </span>
+              <span className="mx-1 text-white"> {userDetails?.name}</span>
               <span className="text-white"> | </span>
               <Logout />
             </div>

@@ -18,7 +18,7 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
-  // const [userData, setUserData] = useState(null);
+  const [userDetails, setUserDetails] = useState(null);
   const userData = useAuth();
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -42,18 +42,19 @@ const AuthProvider = ({ children }) => {
     };
   }, [user]);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const res = await useAxiosBaseUrl.get(`/user`, {
-  //       params: { email: user.email },
-  //     });
-  //     setUserData(res.data);
-  //     console(userData);
-  //   };
-  //   if (user?.email) {
-  //     fetchData();
-  //   }
-  // }, [user, userData]);
+  useEffect(() => {
+    setLoading(true);
+    const fetchData = async () => {
+      const res = await useAxiosBaseUrl.get(`/user`, {
+        params: { email: user.email },
+      });
+      setUserDetails(res.data);
+      setLoading(false);
+    };
+    if (user?.email) {
+      fetchData();
+    }
+  }, [user, loading]);
 
   // create user
   const newUser = (email, password) => {
@@ -90,6 +91,8 @@ const AuthProvider = ({ children }) => {
     logout,
     googleSingIn,
     userData,
+    setLoading,
+    userDetails,
     handleGoogleSignIn,
   };
   return (

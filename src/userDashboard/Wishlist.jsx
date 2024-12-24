@@ -1,23 +1,23 @@
 import { useEffect, useState } from "react";
 import WishlistCart from "../components/Buyer/WishlistCart";
-import useUserData from "../hooks/useUserData";
 import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
+import useAuth from "../hooks/useAuth";
 
 const Wishlist = () => {
-  const userData = useUserData();
+  const { userDetails } = useAuth();
   const [wishlist, setWishlist] = useState([]);
   useEffect(() => {
     const fectchCart = async () => {
       await useAxiosBaseUrl
         .get("/wishlist-list", {
-          params: { productIds: JSON.stringify(userData?.wishlist) },
+          params: { productIds: JSON.stringify(userDetails?.wishlist) },
         })
         .then((res) => {
           setWishlist(res.data);
         });
     };
     fectchCart();
-  }, [userData?.wishlist]);
+  }, [userDetails?.wishlist]);
   return (
     <div>
       <h1>Wishlist</h1>
@@ -31,7 +31,7 @@ const Wishlist = () => {
           <WishlistCart
             key={wishlist._id}
             wishlistItem={wishlist}
-            userId={userData._id}
+            userId={userDetails._id}
           />
         ))}
       </div>

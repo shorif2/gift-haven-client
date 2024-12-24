@@ -1,8 +1,10 @@
 import toast from "react-hot-toast";
 import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
 import { Link } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 const ShopCard = ({ product, userId }) => {
+  const { userDetails, setLoading } = useAuth();
   const {
     _id,
     name,
@@ -21,6 +23,8 @@ const ShopCard = ({ product, userId }) => {
       toast.error("please going first");
       return;
     }
+    setLoading(true);
+
     const res = await useAxiosBaseUrl.put("/manage-cart", {
       productId: id,
       userId: userId,
@@ -28,10 +32,13 @@ const ShopCard = ({ product, userId }) => {
     });
     if (res.data.modifiedCount) {
       toast.success("Item added to cart");
+      setLoading(false);
     } else if (res.data.modifiedCount === 0) {
       toast.error("Item already added");
+      setLoading(false);
     } else {
       toast.error("Something went wrong");
+      setLoading(false);
     }
   };
 

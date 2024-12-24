@@ -3,13 +3,13 @@ import Drawer from "../components/Shop/Drawer";
 import DrawerToggle from "../components/Shop/DrawerToggle";
 import SideBar from "../components/Shop/SideBar";
 import ShopCard from "../components/ShopCard";
-import useUserData from "../hooks/useUserData";
 import Pagination from "../components/Shop/Pagination";
 import { useShop } from "../hooks/useShop";
+import useAuth from "../hooks/useAuth";
 
 const Shop = () => {
   const { products, loading } = useShop();
-  const userData = useUserData();
+  const { userDetails } = useAuth();
   return (
     <>
       <Breadcrumb />
@@ -28,7 +28,7 @@ const Shop = () => {
                 <ShopCard
                   key={product._id}
                   product={product}
-                  userId={userData?._id}
+                  userId={userDetails?._id}
                 />
               ))}
             </div>

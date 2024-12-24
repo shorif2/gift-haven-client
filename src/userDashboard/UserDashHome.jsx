@@ -1,15 +1,12 @@
+import useAuth from "../hooks/useAuth";
 import useUserData from "../hooks/useUserData";
 
 const UserDashHome = () => {
-  const userData = useUserData();
+  const { userDetails } = useAuth();
 
   return (
     <div className="space-y-4">
       <h1 className="font-medium">My Profile</h1>
-      {/* <h1>this dashboard home for user</h1>
-      <p>Email: {userData?.email}</p>
-      <p>Role: {userData?.role}</p>
-      <p>Status: {userData?.status}</p> */}
       <div className="border p-5 rounded-lg flex justify-between">
         <div className="rounded-full flex gap-4 justify-start items-center">
           <img
@@ -17,8 +14,8 @@ const UserDashHome = () => {
             src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
           />
           <div>
-            <h2>{userData?.name}</h2>
-            <h2 className="text-gray-500">Role: {userData?.role}</h2>
+            <h2>{userDetails?.name}</h2>
+            <h2 className="text-gray-500">Role: {userDetails?.role}</h2>
             <p className="text-gray-500">Los Angeles, California, USA</p>
           </div>
         </div>
@@ -30,17 +27,17 @@ const UserDashHome = () => {
           <div className="rounded-full flex justify-start gap-4 text-gray-500 w-1/2">
             <div className="space-y-2 w-1/2">
               <h2>First Name</h2>
-              <p>{userData?.name}</p>
+              <p>{userDetails?.name}</p>
             </div>
             <div className="space-y-2 w-1/2">
               <h2>Last Name</h2>
-              <p>{userData?.name}</p>
+              <p>{userDetails?.name}</p>
             </div>
           </div>
           <div className="rounded-full flex gap-4 text-gray-500 w-1/2">
             <div className="space-y-2 w-1/2">
               <h2>Email Address</h2>
-              <p>{userData?.email}</p>
+              <p>{userDetails?.email}</p>
             </div>
             <div className="space-y-2 w-1/2">
               <h2>Phone</h2>

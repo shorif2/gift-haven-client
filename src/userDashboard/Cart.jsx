@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import ShoppingCart from "../components/Buyer/ShoppingCart";
-import useUserData from "../hooks/useUserData";
 import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
+import useAuth from "../hooks/useAuth";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const userData = useUserData();
-  const productIds = userData?.cart;
+  const { userDetails } = useAuth();
+  const productIds = userDetails?.cart;
   const [cartItem, setCartItem] = useState([]);
   useEffect(() => {
     const fectchCart = async () => {
@@ -19,25 +20,29 @@ const Cart = () => {
     };
     fectchCart();
   }, [productIds]);
-
   return (
     <div className=" bg-gray-100 flex items-center justify-center p-4">
       <div className="max-w-2xl w-full bg-white rounded-xl shadow-lg p-6">
-        {!userData?.cart?.length ? (
+        {!userDetails?.cart?.length ? (
           <div>
-            <h1>You have no item in cart</h1>
-            <button>Shop Now</button>
+            <h1 className="pb-4">You have no item in cart</h1>
+            <Link
+              to="/shop"
+              className="border px-3 py-1  bg-primary text-white rounded"
+            >
+              Shop Now
+            </Link>
           </div>
         ) : (
           <>
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
-              Shopping Cart ({userData.cart.length})
+              Shopping Cart ({userDetails?.cart.length})
             </h2>
             {cartItem.map((cart) => (
               <ShoppingCart
                 key={cart?._id}
                 cartItem={cart}
-                userId={userData._id}
+                userId={userDetails._id}
               />
             ))}
 

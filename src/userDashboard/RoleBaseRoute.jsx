@@ -1,8 +1,8 @@
-import useUserData from "../hooks/useUserData";
+import useAuth from "../hooks/useAuth";
 import { Link } from "react-router-dom";
 
 const RoleBaseRoute = () => {
-  const user = useUserData();
+  const { userDetails } = useAuth();
   const route = {
     buyer: [
       {
@@ -38,7 +38,7 @@ const RoleBaseRoute = () => {
   };
   return (
     <>
-      {route[user?.role]?.map((route) => (
+      {route[userDetails?.role]?.map((route) => (
         <Link
           key={route.id}
           className="border p-2 text-center hover:border-red-500"
