@@ -6,8 +6,14 @@ import NewArrival from "../components/Home/NewArrival";
 import Newsletter from "../components/Home/Newsletter";
 import Product from "../components/Home/Product";
 import Stats from "../components/Home/Stats";
+import useAuth from "../hooks/useAuth";
+import Loading from "./Loading";
 
 const Home = () => {
+  const { loading } = useAuth();
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <>
       <Banner />

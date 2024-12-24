@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import WishlistCart from "../components/Buyer/WishlistCart";
 import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
 import useAuth from "../hooks/useAuth";
+import Loading from "../pages/Loading";
 
 const Wishlist = () => {
-  const { userDetails } = useAuth();
+  const { userDetails, loading } = useAuth();
   const [wishlist, setWishlist] = useState([]);
   useEffect(() => {
     const fectchCart = async () => {
@@ -18,6 +19,10 @@ const Wishlist = () => {
     };
     fectchCart();
   }, [userDetails?.wishlist]);
+
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div>
       <h1>Wishlist</h1>

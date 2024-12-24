@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
-const Logout = () => {
+const Logout = ({ type }) => {
   const { logout } = useAuth();
   const navigate = useNavigate();
   return (
@@ -10,7 +10,7 @@ const Logout = () => {
         logout();
         navigate("/login");
       }}
-      className="text-white hover:text-red-600"
+      className={type === "dash" ? "" : "text-white hover:text-red-600"}
     >
       Sign Out
     </button>

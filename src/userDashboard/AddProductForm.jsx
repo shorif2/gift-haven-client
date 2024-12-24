@@ -4,9 +4,10 @@ import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Loading from "../pages/Loading";
 
 const AddProductForm = ({ productId }) => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const [isEditing, setIsEditing] = useState(false);
   const navigate = useNavigate();
   const { register, handleSubmit, reset, setValue } = useForm({
@@ -44,7 +45,9 @@ const AddProductForm = ({ productId }) => {
       setValue("sellerEmail", user?.email);
     }
   }, [productId, reset, setValue, user]);
-
+  if (loading) {
+    return <Loading />;
+  }
   const onSubmit = (data) => {
     const name = data.name;
     const description = data.description;

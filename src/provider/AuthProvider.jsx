@@ -51,6 +51,7 @@ const AuthProvider = ({ children }) => {
       setUserDetails(res.data);
       setLoading(false);
     };
+    setLoading(false);
     if (user?.email) {
       fetchData();
     }
@@ -73,6 +74,7 @@ const AuthProvider = ({ children }) => {
   };
   // google sign in
   const googleSingIn = () => {
+    setLoading(true);
     const googleProvider = new GoogleAuthProvider();
     return signInWithPopup(auth, googleProvider);
   };
@@ -80,6 +82,7 @@ const AuthProvider = ({ children }) => {
   //google sign-in 2
 
   const handleGoogleSignIn = () => {
+    setLoading(true);
     const provider = new GoogleAuthProvider();
     signInWithRedirect(auth, provider);
   };

@@ -1,5 +1,4 @@
 import useAuth from "../hooks/useAuth";
-import useUserData from "../hooks/useUserData";
 
 const UserDashHome = () => {
   const { userDetails } = useAuth();

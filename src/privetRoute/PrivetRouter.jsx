@@ -1,18 +1,15 @@
 import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import Loading from "../pages/Loading";
 
 const PrivetRouter = ({ children }) => {
   const location = useLocation();
 
   const { user, loading } = useAuth();
 
-  //   if (loading) {
-  //     return (
-  //       <div className="w-full flex justify-center items-center">
-  //         <progress className="progress w-56"></progress>
-  //       </div>
-  //     );
-  //   }
+  if (loading) {
+    return <Loading />;
+  }
   if (user) {
     return children;
   }

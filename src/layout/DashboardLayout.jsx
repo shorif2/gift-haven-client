@@ -1,8 +1,14 @@
 import { Link, Outlet } from "react-router-dom";
 import RoleBaseRoute from "../userDashboard/RoleBaseRoute";
 import Logout from "../components/Logout";
+import Loading from "../pages/Loading";
+import useAuth from "../hooks/useAuth";
 
 const DashboardLayout = () => {
+  const { loading } = useAuth();
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div className="grid grid-cols-12 gap-4 ">
       <div className="grid items-start col-span-2 border  h-screen p-10">
@@ -22,8 +28,7 @@ const DashboardLayout = () => {
             Home
           </Link>
           <div className="border p-2 text-center hover:border-red-500">
-            <Logout />
-            Logout
+            <Logout type="dash" />
           </div>
         </div>
       </div>

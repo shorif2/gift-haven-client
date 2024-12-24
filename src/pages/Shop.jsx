@@ -6,6 +6,7 @@ import ShopCard from "../components/ShopCard";
 import Pagination from "../components/Shop/Pagination";
 import { useShop } from "../hooks/useShop";
 import useAuth from "../hooks/useAuth";
+import Loading from "./Loading";
 
 const Shop = () => {
   const { products, loading } = useShop();
@@ -19,7 +20,9 @@ const Shop = () => {
         <SideBar />
         {loading ? (
           <div className="col-span-3">
-            <div className="flex justify-center">Loading...</div>
+            <div className="flex justify-center">
+              <Loading />
+            </div>
           </div>
         ) : (
           <div className="col-span-3">

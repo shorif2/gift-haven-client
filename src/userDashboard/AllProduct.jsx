@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
 import useAuth from "../hooks/useAuth";
 import SellerShopCard from "../components/SellerShopCard";
+import Loading from "../pages/Loading";
 
 const AllProduct = () => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const [product, setProduct] = useState(null);
   useEffect(() => {
     const fectchProdut = async () => {
@@ -17,6 +18,9 @@ const AllProduct = () => {
       fectchProdut();
     }
   }, [user?.email]);
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div>
       <h1 className="pb-10">My Product</h1>

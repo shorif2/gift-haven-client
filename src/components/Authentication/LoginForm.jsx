@@ -2,9 +2,10 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import LoadingButton from "../LoadingButton";
 
 const LoginForm = () => {
-  const { signIn } = useAuth();
+  const { signIn, loading } = useAuth();
   const navigate = useNavigate();
   const {
     register,
@@ -80,12 +81,16 @@ const LoginForm = () => {
         </a>
       </div>
       <div className="mt-4">
-        <button
-          type="submit"
-          className="block w-full py-2 text-center text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium"
-        >
-          Login
-        </button>
+        {loading ? (
+          <LoadingButton />
+        ) : (
+          <button
+            type="submit"
+            className="block w-full py-2 text-center text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium"
+          >
+            Login
+          </button>
+        )}
       </div>
     </form>
   );

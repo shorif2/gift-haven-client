@@ -3,9 +3,10 @@ import ShoppingCart from "../components/Buyer/ShoppingCart";
 import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
 import useAuth from "../hooks/useAuth";
 import { Link } from "react-router-dom";
+import Loading from "../pages/Loading";
 
 const Cart = () => {
-  const { userDetails } = useAuth();
+  const { userDetails, loading } = useAuth();
   const productIds = userDetails?.cart;
   const [cartItem, setCartItem] = useState([]);
   useEffect(() => {
@@ -20,6 +21,9 @@ const Cart = () => {
     };
     fectchCart();
   }, [productIds]);
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div className=" bg-gray-100 flex items-center justify-center p-4">
       <div className="max-w-2xl w-full bg-white rounded-xl shadow-lg p-6">

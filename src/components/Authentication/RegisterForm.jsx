@@ -3,8 +3,9 @@ import useAuth from "../../hooks/useAuth";
 import useAxiosBaseUrl from "../../hooks/useAxiosBaseUrl";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import LoadingButton from "../LoadingButton";
 const RegisterForm = () => {
-  const { newUser } = useAuth();
+  const { newUser, loading } = useAuth();
   const {
     register,
     handleSubmit,
@@ -12,7 +13,6 @@ const RegisterForm = () => {
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
-  // {...register("", { required: true })}
 
   const onSubmit = (data) => {
     const name = data.name;
@@ -159,12 +159,16 @@ const RegisterForm = () => {
         </div>
       </div>
       <div className="mt-4">
-        <button
-          type="submit"
-          className="block w-full py-2 text-center text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium"
-        >
-          create account
-        </button>
+        {loading ? (
+          <LoadingButton />
+        ) : (
+          <button
+            type="submit"
+            className="block w-full py-2 text-center text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium"
+          >
+            create account
+          </button>
+        )}
       </div>
     </form>
   );
