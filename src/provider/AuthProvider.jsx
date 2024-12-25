@@ -1,5 +1,7 @@
+import axios from "axios";
 import {
   createUserWithEmailAndPassword,
+  getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -7,24 +9,27 @@ import {
   signOut,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
-import auth from "../auth/firebase.config";
-import useAuth from "../hooks/useAuth";
+import { app } from "../auth/firebase.config";
 import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const AuthContext = createContext(null);
-// eslint-disable-next-line react/prop-types
+
+const auth = getAuth(app);
+
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [userDetails, setUserDetails] = useState(null);
-  const userData = useAuth();
+  // const userData = useAuth();
+  const googleProvider = new GoogleAuthProvider();
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       if (currentUser) {
-        useAxiosBaseUrl
-          .post("/authentication", { email: user?.email })
+        axios
+          .post("http://localhost:5000/authentication", { email: user?.email })
           .then((data) => {
             if (data.data) {
               localStorage.setItem("access-token", data?.data.token);
@@ -72,9 +77,9 @@ const AuthProvider = ({ children }) => {
   const logout = () => {
     return signOut(auth);
   };
+
   // google sign in
   const googleSingIn = () => {
-    const googleProvider = new GoogleAuthProvider();
     return signInWithPopup(auth, googleProvider);
   };
 
@@ -92,7 +97,7 @@ const AuthProvider = ({ children }) => {
     signIn,
     logout,
     googleSingIn,
-    userData,
+
     setLoading,
     userDetails,
   };
