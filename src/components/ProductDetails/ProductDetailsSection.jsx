@@ -1,36 +1,45 @@
+import ProductRatings from "../ProductRatings";
+
 const ProductDetailsSection = ({ product }) => {
   return (
     <div className="container grid grid-cols-2 gap-6">
       <div>
-        <img
-          src="/images/products/product1.jpg"
-          alt="product"
-          className="w-full"
-        />
+        <div className="w-full h-auto">
+          {product?.image ? (
+            <img
+              src={product?.image[0]}
+              alt={product?.name}
+              className="w-full"
+            />
+          ) : (
+            <p className="flex place-content-center">Image not available</p>
+          )}
+        </div>
+
         <div className="grid grid-cols-5 gap-4 mt-4">
           <img
-            src="/images/products/product2.jpg"
-            alt="product2"
+            src={product?.image[0]}
+            alt={product?.name}
             className="w-full cursor-pointer border border-primary"
           />
           <img
-            src="/images/products/product3.jpg"
-            alt="product2"
+            src={product?.image[0]}
+            alt={product?.name}
             className="w-full cursor-pointer border"
           />
           <img
-            src="/images/products/product4.jpg"
-            alt="product2"
+            src={product?.image[0]}
+            alt={product?.name}
             className="w-full cursor-pointer border"
           />
           <img
-            src="/images/products/product5.jpg"
-            alt="product2"
+            src={product?.image[0]}
+            alt={product?.name}
             className="w-full cursor-pointer border"
           />
           <img
-            src="/images/products/product6.jpg"
-            alt="product2"
+            src={product?.image[0]}
+            alt={product?.name}
             className="w-full cursor-pointer border"
           />
         </div>
@@ -39,23 +48,7 @@ const ProductDetailsSection = ({ product }) => {
       <div>
         <h2 className="text-3xl font-medium uppercase mb-2">{product?.name}</h2>
         <div className="flex items-center mb-4">
-          <div className="flex gap-1 text-sm text-yellow-400">
-            <span>
-              <i className="fa-solid fa-star"></i>
-            </span>
-            <span>
-              <i className="fa-solid fa-star"></i>
-            </span>
-            <span>
-              <i className="fa-solid fa-star"></i>
-            </span>
-            <span>
-              <i className="fa-solid fa-star"></i>
-            </span>
-            <span>
-              <i className="fa-solid fa-star"></i>
-            </span>
-          </div>
+          <ProductRatings rating={product?.ratings} />
           <div className="text-xs text-gray-500 ml-3">(150 Reviews)</div>
         </div>
         <div className="space-y-2">

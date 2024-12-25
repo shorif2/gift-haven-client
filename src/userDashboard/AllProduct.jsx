@@ -1,34 +1,39 @@
 import { useEffect, useState } from "react";
-import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
-import useAuth from "../hooks/useAuth";
 import SellerShopCard from "../components/SellerShopCard";
+import useAuth from "../hooks/useAuth";
+import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
 import Loading from "../pages/Loading";
 
 const AllProduct = () => {
-  const { user, loading } = useAuth();
+  const { user } = useAuth();
   const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
-    const fectchProdut = async () => {
+    setLoading(true);
+    const fetchProduct = async () => {
       const res = await useAxiosBaseUrl.get("/my-products", {
         params: { email: user.email },
       });
       setProduct(res.data);
+      setLoading(false);
     };
     if (user?.email) {
-      fectchProdut();
+      fetchProduct();
     }
   }, [user?.email]);
-  if (loading) {
-    return <Loading />;
-  }
+
   return (
     <div>
       <h1 className="pb-10">My Product</h1>
-      <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {product?.map((pro) => (
-          <SellerShopCard key={pro._id} product={pro} />
-        ))}
-      </div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {product?.map((pro) => (
+            <SellerShopCard key={pro._id} product={pro} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

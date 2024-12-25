@@ -54,34 +54,22 @@ const Footer = () => {
               </h4>
               <ul className="space-y-3">
                 <li>
-                  <a
-                    href="javascript:void(0)"
-                    className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
-                  >
+                  <a className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">
                     SaaS Development
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="javascript:void(0)"
-                    className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
-                  >
+                  <a className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">
                     Our Products
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="javascript:void(0)"
-                    className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
-                  >
+                  <a className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">
                     User Flow
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="javascript:void(0)"
-                    className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
-                  >
+                  <a className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">
                     User Strategy
                   </a>
                 </li>
@@ -95,34 +83,22 @@ const Footer = () => {
               </h4>
               <ul className="space-y-3">
                 <li>
-                  <a
-                    href="javascript:void(0)"
-                    className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
-                  >
+                  <a className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">
                     About TailGrids
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="javascript:void(0)"
-                    className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
-                  >
+                  <a className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">
                     Contact & Support
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="javascript:void(0)"
-                    className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
-                  >
+                  <a className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">
                     Success History
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="javascript:void(0)"
-                    className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
-                  >
+                  <a className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">
                     Setting & Privacy
                   </a>
                 </li>
@@ -136,34 +112,22 @@ const Footer = () => {
               </h4>
               <ul className="space-y-3">
                 <li>
-                  <a
-                    href="javascript:void(0)"
-                    className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
-                  >
+                  <a className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">
                     Premium Support
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="javascript:void(0)"
-                    className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
-                  >
+                  <a className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">
                     Our Services
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="javascript:void(0)"
-                    className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
-                  >
+                  <a className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">
                     Know Our Team
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="javascript:void(0)"
-                    className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6"
-                  >
+                  <a className="inline-block text-base leading-loose text-body-color hover:text-primary dark:text-dark-6">
                     Download App
                   </a>
                 </li>

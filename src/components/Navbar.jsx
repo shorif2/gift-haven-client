@@ -1,11 +1,13 @@
 import { NavLink } from "react-router-dom";
-import NavCatagories from "./NavCatagories";
 import useAuth from "../hooks/useAuth";
 import Logout from "./Logout";
+import NavCatagories from "./NavCatagories";
 
 const Navbar = () => {
-  const { user, userDetails } = useAuth();
-
+  const { user, userDetails, loading } = useAuth();
+  if (loading) {
+    return;
+  }
   return (
     <div className="bg-gray-800">
       <div className="container flex z-100">

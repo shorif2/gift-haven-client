@@ -1,8 +1,8 @@
 import { Link, Outlet } from "react-router-dom";
-import RoleBaseRoute from "../userDashboard/RoleBaseRoute";
 import Logout from "../components/Logout";
-import Loading from "../pages/Loading";
 import useAuth from "../hooks/useAuth";
+import Loading from "../pages/Loading";
+import RoleBaseRoute from "../userDashboard/RoleBaseRoute";
 
 const DashboardLayout = () => {
   const { loading } = useAuth();
@@ -10,7 +10,7 @@ const DashboardLayout = () => {
     return <Loading />;
   }
   return (
-    <div className="grid grid-cols-12 gap-4 ">
+    <div className=" grid grid-cols-12 gap-4 ">
       <div className="grid items-start col-span-2 border  h-screen p-10">
         <div className="flex flex-col gap-4">
           <div className="flex justify-center items-center gap-2 h-min">
@@ -32,7 +32,7 @@ const DashboardLayout = () => {
           </div>
         </div>
       </div>
-      <div className="grid col-span-10 border  p-10">
+      <div className="grid col-span-10 border   p-10 h-screen  overflow-y-auto">
         <Outlet />
       </div>
     </div>

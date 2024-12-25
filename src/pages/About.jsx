@@ -620,10 +620,7 @@ const About = () => {
                 brand. Secure a consistent brand image with a domain name that
                 matches your business.
               </p>
-              <a
-                href="javascript:void(0)"
-                className="inline-flex items-center justify-center rounded-md border border-transparent bg-primary px-7 py-3 text-center text-base font-medium text-white hover:bg-opacity-90"
-              >
+              <a className="inline-flex items-center justify-center rounded-md border border-transparent bg-primary px-7 py-3 text-center text-base font-medium text-white hover:bg-opacity-90">
                 Get Started
               </a>
             </div>

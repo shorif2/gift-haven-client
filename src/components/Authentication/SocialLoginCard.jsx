@@ -2,8 +2,8 @@ import useAuth from "../../hooks/useAuth";
 
 const SocialLoginCard = ({ type }) => {
   const { googleSingIn } = useAuth();
-  const handleGoogleSign = () => {
-    googleSingIn();
+  const handleGoogleSign = async () => {
+    await googleSingIn().then((res) => console.log(res));
   };
   return (
     <div className="mt-4 flex gap-4">

@@ -20,7 +20,7 @@ const SideBar = () => {
   };
 
   return (
-    <div className="col-span-1 bg-white px-4 pb-6 shadow rounded overflow-hiddenb hidden md:block">
+    <div className="col-span-1 bg-white px-4 pb-6 shadow rounded overflow-hidden hidden md:block">
       <div className="relative mt-4 flex items-center pb-4">
         <form onSubmit={handleSearch} className="flex w-full ">
           <input

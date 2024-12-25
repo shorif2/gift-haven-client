@@ -1,25 +1,28 @@
 import { useEffect, useState } from "react";
-import ShoppingCart from "../components/Buyer/ShoppingCart";
-import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
-import useAuth from "../hooks/useAuth";
 import { Link } from "react-router-dom";
+import ShoppingCart from "../components/Buyer/ShoppingCart";
+import useAuth from "../hooks/useAuth";
+import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
 import Loading from "../pages/Loading";
 
 const Cart = () => {
-  const { userDetails, loading } = useAuth();
+  const { userDetails } = useAuth();
   const productIds = userDetails?.cart;
   const [cartItem, setCartItem] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
-    const fectchCart = async () => {
+    setLoading(true);
+    const fetchCart = async () => {
       await useAxiosBaseUrl
         .get("/cart-list", {
           params: { productIds: JSON.stringify(productIds) },
         })
         .then((res) => {
           setCartItem(res.data);
+          setLoading(false);
         });
     };
-    fectchCart();
+    fetchCart();
   }, [productIds]);
   if (loading) {
     return <Loading />;

@@ -11,11 +11,12 @@ import Loading from "./Loading";
 
 const Home = () => {
   const { loading } = useAuth();
-  if (loading) {
-    return <Loading />;
-  }
+  // if (loading) {
+  //   return <Loading />;
+  // }
   return (
     <>
+      {loading && <Loading />}
       <Banner />
       <Features />
       <Categories />

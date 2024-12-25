@@ -1,17 +1,19 @@
 import useAuth from "../hooks/useAuth";
+import Loading from "../pages/Loading";
 
 const UserDashHome = () => {
-  const { userDetails } = useAuth();
-
+  const { userDetails, loading } = useAuth();
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div className="space-y-4">
       <h1 className="font-medium">My Profile</h1>
       <div className="border p-5 rounded-lg flex justify-between">
         <div className="rounded-full flex gap-4 justify-start items-center">
-          <img
-            className="w-[72px] rounded-full"
-            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-          />
+          <div className="w-[72px] h-[72px] rounded-full border flex justify-center items-center text-3xl  text-primary font-bold">
+            {userDetails?.name[0] || "?"}
+          </div>
           <div>
             <h2>{userDetails?.name}</h2>
             <h2 className="text-gray-500">Role: {userDetails?.role}</h2>
@@ -54,7 +56,7 @@ const UserDashHome = () => {
       </div>
       <div className="border p-5 rounded-lg flex justify-between">
         <div className="rounded-full space-y-4 w-full">
-          <h2 className="font-medium text-lg">Address</h2>
+          <h2 className="font-medium text-lg">Shipping Address</h2>
           <div className="rounded-full flex justify-start gap-4 text-gray-500 w-1/2">
             <div className="space-y-2 w-1/2">
               <h2>Country</h2>

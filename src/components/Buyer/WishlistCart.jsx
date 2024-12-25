@@ -1,5 +1,6 @@
 import toast from "react-hot-toast";
 import useAxiosBaseUrl from "../../hooks/useAxiosBaseUrl";
+import ProductRatings from "../ProductRatings";
 
 const WishlistCart = ({ wishlistItem, userId }) => {
   const { _id } = wishlistItem;
@@ -43,11 +44,17 @@ const WishlistCart = ({ wishlistItem, userId }) => {
   return (
     <div className="bg-white shadow rounded overflow-hidden group">
       <div className="relative">
-        <img
-          src="public/images/products/product1.jpg"
-          alt="product 1"
-          className="w-full"
-        />
+        <div className="bg-gray-100 h-64 w-full flex items-center justify-center">
+          {wishlistItem?.image[0] ? (
+            <img
+              src={wishlistItem?.image[0]}
+              alt={wishlistItem?.name || "image unavailable"}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <p className="flex place-content-center">Image not available</p>
+          )}
+        </div>
         <div
           className="absolute inset-0 bg-black bg-opacity-40 flex items-center 
             justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
@@ -82,24 +89,10 @@ const WishlistCart = ({ wishlistItem, userId }) => {
           </p>
         </div>
         <div className="flex items-center">
-          <div className="flex gap-1 text-sm text-yellow-400">
-            <span>
-              <i className="fa-solid fa-star"></i>
-            </span>
-            <span>
-              <i className="fa-solid fa-star"></i>
-            </span>
-            <span>
-              <i className="fa-solid fa-star"></i>
-            </span>
-            <span>
-              <i className="fa-solid fa-star"></i>
-            </span>
-            <span>
-              <i className="fa-solid fa-star"></i>
-            </span>
+          <ProductRatings rating={wishlistItem?.ratings} />
+          <div className="text-xs text-gray-500 ml-3">
+            ({wishlistItem?.ratings} )
           </div>
-          <div className="text-xs text-gray-500 ml-3">(150)</div>
         </div>
       </div>
       <div className="flex gap-4">

@@ -19,8 +19,8 @@ const ShoppingCart = ({ cartItem, userId }) => {
   return (
     <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
       <img
-        src="https://placehold.co/100x100"
-        alt="Product"
+        src={cartItem?.image[0]}
+        alt={cartItem?.name}
         className="w-20 h-20 object-cover rounded-md"
       />
       <div className="flex-1">

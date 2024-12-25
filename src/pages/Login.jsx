@@ -1,8 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginForm from "../components/Authentication/LoginForm";
 import SocialLoginCard from "../components/Authentication/SocialLoginCard";
+import useAuth from "../hooks/useAuth";
 
 const Login = () => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  if (user) navigate("/");
   return (
     <div className="contain py-16 h-screen">
       <div className="max-w-lg mx-auto shadow px-6 py-7 rounded overflow-hidden">

@@ -1,16 +1,15 @@
 import {
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
-  signInWithRedirect,
-  GoogleAuthProvider,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../auth/firebase.config";
-import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
 import useAuth from "../hooks/useAuth";
+import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const AuthContext = createContext(null);
@@ -33,7 +32,7 @@ const AuthProvider = ({ children }) => {
             }
           });
       } else {
-        localStorage.removeItem("acccess-token");
+        localStorage.removeItem("access-token");
         setLoading(false);
       }
     });
@@ -43,17 +42,18 @@ const AuthProvider = ({ children }) => {
   }, [user]);
 
   useEffect(() => {
-    setLoading(true);
     const fetchData = async () => {
+      setLoading(true);
       const res = await useAxiosBaseUrl.get(`/user`, {
         params: { email: user.email },
       });
       setUserDetails(res.data);
       setLoading(false);
     };
-    setLoading(false);
+
     if (user?.email) {
       fetchData();
+      setLoading(false);
     }
   }, [user, loading]);
 
@@ -74,18 +74,17 @@ const AuthProvider = ({ children }) => {
   };
   // google sign in
   const googleSingIn = () => {
-    setLoading(true);
     const googleProvider = new GoogleAuthProvider();
     return signInWithPopup(auth, googleProvider);
   };
 
   //google sign-in 2
 
-  const handleGoogleSignIn = () => {
-    setLoading(true);
-    const provider = new GoogleAuthProvider();
-    signInWithRedirect(auth, provider);
-  };
+  // const handleGoogleSignIn = () => {
+  //   setLoading(true);
+  //   const provider = new GoogleAuthProvider();
+  //   signInWithRedirect(auth, provider);
+  // };
   const authInfo = {
     newUser,
     loading,
@@ -96,7 +95,6 @@ const AuthProvider = ({ children }) => {
     userData,
     setLoading,
     userDetails,
-    handleGoogleSignIn,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

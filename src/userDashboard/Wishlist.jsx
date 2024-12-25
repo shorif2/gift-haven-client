@@ -1,23 +1,26 @@
 import { useEffect, useState } from "react";
 import WishlistCart from "../components/Buyer/WishlistCart";
-import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
 import useAuth from "../hooks/useAuth";
+import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
 import Loading from "../pages/Loading";
 
 const Wishlist = () => {
-  const { userDetails, loading } = useAuth();
+  const { userDetails } = useAuth();
   const [wishlist, setWishlist] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
-    const fectchCart = async () => {
+    const fetchCart = async () => {
+      setLoading(true);
       await useAxiosBaseUrl
         .get("/wishlist-list", {
           params: { productIds: JSON.stringify(userDetails?.wishlist) },
         })
         .then((res) => {
           setWishlist(res.data);
+          setLoading(false);
         });
     };
-    fectchCart();
+    fetchCart();
   }, [userDetails?.wishlist]);
 
   if (loading) {

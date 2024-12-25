@@ -2,7 +2,7 @@ import { HashLoader } from "react-spinners";
 
 const Loading = () => {
   return (
-    <div className="min-h-screen min-w-screen flex justify-center pt-28">
+    <div className="min-h-screen min-w-screen flex justify-center p-96">
       <HashLoader
         color="red"
         loading={true}

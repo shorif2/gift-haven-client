@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
-import Image from "/public/images/products/product10.jpg";
-import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
+import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
 
 const SellerShopCard = ({ product }) => {
   const handleDeleteProduct = async (productId) => {
@@ -18,7 +17,17 @@ const SellerShopCard = ({ product }) => {
   return (
     <div className="bg-white shadow rounded overflow-hidden group">
       <div className="relative">
-        <img src={Image} alt="product 1" className="w-full" />
+        <div className="bg-gray-100 h-64 w-full flex items-center justify-center">
+          {product?.image[0] ? (
+            <img
+              src={product?.image[0]}
+              alt="product 1"
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <p className="flex place-content-center">Image not available</p>
+          )}
+        </div>
         <div
           className="absolute inset-0 bg-black bg-opacity-40 flex items-center 
             justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
@@ -38,12 +47,12 @@ const SellerShopCard = ({ product }) => {
         </div>
       </div>
       <div className="pt-4 pb-3 px-4">
-        <a href="#">
+        <Link to={`/product-details/?id=${product?._id}`}>
           <h4 className="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
             {product?.name}
           </h4>
           <h5>{product?.description.slice(0, 40)}...</h5>
-        </a>
+        </Link>
         <div className="flex items-baseline mb-1 space-x-2">
           <p className="text-xl text-primary font-semibold">
             ${product?.price}

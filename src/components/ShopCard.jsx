@@ -1,7 +1,8 @@
 import toast from "react-hot-toast";
-import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
 import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
+import ProductRatings from "./ProductRatings";
 
 const ShopCard = ({ product, userId }) => {
   const { userDetails, setLoading } = useAuth();
@@ -20,7 +21,7 @@ const ShopCard = ({ product, userId }) => {
 
   const handleCartAdd = async (id, action) => {
     if (!userId) {
-      toast.error("please going first");
+      toast.error("please login first");
       return;
     }
     setLoading(true);
@@ -44,7 +45,7 @@ const ShopCard = ({ product, userId }) => {
 
   const handleWishlist = async (id, action) => {
     if (!userId) {
-      toast.error("please going first");
+      toast.error("please login first");
       return;
     }
     const res = await useAxiosBaseUrl.put("/manage-wishlist", {
@@ -63,11 +64,17 @@ const ShopCard = ({ product, userId }) => {
   return (
     <div className="bg-white shadow rounded overflow-hidden group">
       <div className="relative">
-        <img
-          src="/images/products/product1.jpg"
-          alt="product 1"
-          className="w-full"
-        />
+        <div className="bg-gray-100 h-64 w-full flex items-center justify-center">
+          {product?.image[0] ? (
+            <img
+              src={product?.image[0]}
+              alt={product?.name || "image unavailable"}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <p className="flex place-content-center">Image not available</p>
+          )}
+        </div>
         <div
           className="absolute inset-0 bg-black bg-opacity-40 flex items-center 
             justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
@@ -101,29 +108,25 @@ const ShopCard = ({ product, userId }) => {
           </p>
         </div>
         <div className="flex items-center">
-          <div className="flex gap-1 text-sm text-yellow-400">
-            <span>
-              <i className="fa-solid fa-star"></i>
-            </span>
-            <span>
-              <i className="fa-solid fa-star"></i>
-            </span>
-            <span>
-              <i className="fa-solid fa-star"></i>
-            </span>
-            <span>
-              <i className="fa-solid fa-star"></i>
-            </span>
-            <span>
-              <i className="fa-solid fa-star"></i>
-            </span>
-          </div>
-          <div className="text-xs text-gray-500 ml-3">(150)</div>
+          <ProductRatings rating={ratings} />
+          <div className="text-xs text-gray-500 ml-3">({ratings})</div>
         </div>
       </div>
       <button
         onClick={() => handleCartAdd(_id, "add")}
-        className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
+        disabled={
+          userDetails?.role === "seller" || userDetails?.role === "admin"
+        } // Correctly handle both roles
+        title={
+          userDetails?.role === "seller" || userDetails?.role === "admin"
+            ? "Sellers and admins are not allowed to add to cart"
+            : ""
+        }
+        className={`block w-full py-1 text-center text-white bg-primary border border-primary rounded-b transition ${
+          userDetails?.role === "seller" || userDetails?.role === "admin"
+            ? "opacity-50 cursor-not-allowed"
+            : "hover:bg-transparent hover:text-primary"
+        }`}
       >
         Add to cart
       </button>

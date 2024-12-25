@@ -1,11 +1,11 @@
 import Breadcrumb from "../components/Shop/Breadcrumb";
 import Drawer from "../components/Shop/Drawer";
 import DrawerToggle from "../components/Shop/DrawerToggle";
+import Pagination from "../components/Shop/Pagination";
 import SideBar from "../components/Shop/SideBar";
 import ShopCard from "../components/ShopCard";
-import Pagination from "../components/Shop/Pagination";
-import { useShop } from "../hooks/useShop";
 import useAuth from "../hooks/useAuth";
+import { useShop } from "../hooks/useShop";
 import Loading from "./Loading";
 
 const Shop = () => {
@@ -14,7 +14,7 @@ const Shop = () => {
   return (
     <>
       <Breadcrumb />
-      <div className="container grid md:grid-cols-4 grid-cols-2 gap-6 pt-4 pb-16 items-start">
+      <div className="container min-h-fit grid md:grid-cols-4 grid-cols-2 gap-6 pt-4 pb-16 items-start">
         <DrawerToggle />
         {<Drawer />}
         <SideBar />

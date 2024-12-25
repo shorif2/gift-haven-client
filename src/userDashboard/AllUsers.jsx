@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
-import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
 import toast from "react-hot-toast";
+import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
+import Loading from "../pages/Loading";
 
 const AllUsers = () => {
   const [allUser, setAllUser] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const fetchUser = async () => {
+      setLoading(true);
       const res = await useAxiosBaseUrl.get("/all-users");
       setAllUser(res.data);
+      setLoading(false);
     };
     fetchUser();
   }, []);
+
   const handleAction = async (userId, action) => {
     const res = await useAxiosBaseUrl.patch(
       `/user?userId=${userId}&action=${action}`
@@ -19,6 +24,9 @@ const AllUsers = () => {
       toast.success(`Successfully ${action}`);
     }
   };
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div>
       <h1 className="text-lg pb-4">All users</h1>
