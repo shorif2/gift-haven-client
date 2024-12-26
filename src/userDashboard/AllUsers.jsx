@@ -7,10 +7,16 @@ const AllUsers = () => {
   const [allUser, setAllUser] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
+    const token = localStorage.getItem("access-token");
     const fetchUser = async () => {
       setLoading(true);
-      const res = await useAxiosBaseUrl.get("/all-users");
+      const res = await useAxiosBaseUrl.get("/all-users", {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
       setAllUser(res.data);
+      console.log(res);
       setLoading(false);
     };
     fetchUser();

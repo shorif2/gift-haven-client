@@ -50,7 +50,7 @@ const AuthProvider = ({ children }) => {
     const fetchData = async () => {
       setLoading(true);
       const res = await useAxiosBaseUrl.get(`/user`, {
-        params: { email: user.email },
+        params: { email: user?.email },
       });
       setUserDetails(res.data);
       setLoading(false);

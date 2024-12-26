@@ -1,9 +1,41 @@
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+
+import useAxiosBaseUrl from "../../hooks/useAxiosBaseUrl";
 
 const SocialLoginCard = ({ type }) => {
   const { googleSingIn } = useAuth();
+  const navigate = useNavigate();
   const handleGoogleSign = async () => {
-    await googleSingIn().then((res) => console.log(res));
+    const role = "buyer";
+    const status = "approved";
+    const wishlist = [];
+    const cart = [];
+    googleSingIn()
+      .then((res) => {
+        console.log(res);
+
+        if (res) {
+          const email = res?.user.email;
+          const name = res?.user?.displayName;
+          const image = res?.user?.photoURL;
+          const userData = { email, role, status, wishlist, cart, name, image };
+          useAxiosBaseUrl.post("/users", userData).then((res) => {
+            console.log(res);
+            if (res.data.insertedId) {
+              toast.success("Registration Successfull!!");
+              navigate("/");
+            }
+          });
+        } else {
+          toast.success("Login Successfull !!");
+          navigate("/");
+        }
+      })
+      .catch(() => {
+        toast.error("Email already exists, or something went wrong...");
+      });
   };
   return (
     <div className="mt-4 flex gap-4">

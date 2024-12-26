@@ -2,7 +2,10 @@ import { NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 const Header = () => {
-  const { userDetails } = useAuth();
+  const { userDetails, loading } = useAuth();
+  if (loading) {
+    return;
+  }
   return (
     <header className="py-4 shadow-sm bg-white">
       <div className="container flex items-center justify-between">

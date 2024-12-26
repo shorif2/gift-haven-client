@@ -1,7 +1,5 @@
-import React from "react";
-import useUserData from "../hooks/useUserData";
-import useAuth from "../hooks/useAuth";
 import { Navigate, useLocation } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 const SellerRoute = ({ children }) => {
   const location = useLocation();

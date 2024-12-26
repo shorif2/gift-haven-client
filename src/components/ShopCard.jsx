@@ -48,16 +48,20 @@ const ShopCard = ({ product, userId }) => {
       toast.error("please login first");
       return;
     }
+    setLoading(true);
     const res = await useAxiosBaseUrl.put("/manage-wishlist", {
       productId: id,
       userId: userId,
       action: action,
     });
     if (res.data.modifiedCount) {
+      setLoading(false);
       toast.success("Item added to wishlist");
     } else if (res.data.modifiedCount === 0) {
+      setLoading(false);
       toast.error("Item already wishlist");
     } else {
+      setLoading(false);
       toast.error("Something went wrong");
     }
   };

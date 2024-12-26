@@ -34,7 +34,7 @@ const Wishlist = () => {
           <h1>No Item in wishlist</h1>
         </>
       )}
-      <div className="grid md:gird-cols-2 grid-cols-3 gap-4">
+      <div className="mx-auto space-y-4 max-w-6xl">
         {wishlist.map((wishlist) => (
           <WishlistCart
             key={wishlist._id}

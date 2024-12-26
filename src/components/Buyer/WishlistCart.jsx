@@ -1,6 +1,5 @@
 import toast from "react-hot-toast";
 import useAxiosBaseUrl from "../../hooks/useAxiosBaseUrl";
-import ProductRatings from "../ProductRatings";
 
 const WishlistCart = ({ wishlistItem, userId }) => {
   const { _id } = wishlistItem;
@@ -43,8 +42,8 @@ const WishlistCart = ({ wishlistItem, userId }) => {
   };
   return (
     <div className="bg-white shadow rounded overflow-hidden group">
-      <div className="relative">
-        <div className="bg-gray-100 h-64 w-full flex items-center justify-center">
+      <div className="flex items-center justify-between border gap-6 p-4 border-gray-200 rounded">
+        <div className="w-28 h-24 border">
           {wishlistItem?.image[0] ? (
             <img
               src={wishlistItem?.image[0]}
@@ -52,61 +51,34 @@ const WishlistCart = ({ wishlistItem, userId }) => {
               className="w-full h-full object-cover"
             />
           ) : (
-            <p className="flex place-content-center">Image not available</p>
+            <p className="flex justify-center items-center">
+              Image not available
+            </p>
           )}
         </div>
-        <div
-          className="absolute inset-0 bg-black bg-opacity-40 flex items-center 
-            justify-center gap-2 opacity-0 group-hover:opacity-100 transition"
-        >
-          <div
-            className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-            title="view product"
-          >
-            <i className="fa-solid fa-magnifying-glass"></i>
-          </div>
-          <button
-            // onClick={() => handleWishlist(_id, "add")}
-            className="text-white text-lg w-9 h-8 rounded-full bg-primary flex items-center justify-center hover:bg-gray-800 transition"
-            title="add to wishlist"
-          >
-            <i className="fa-solid fa-heart"></i>
-          </button>
-        </div>
-      </div>
-      <div className="pt-4 pb-3 px-4">
-        <a href="#">
-          <h4 className="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
+        <div className="w-1/3">
+          <h2 className="text-gray-800 text-xl font-medium uppercase">
             {wishlistItem?.name}
-          </h4>
-        </a>
-        <div className="flex items-baseline mb-1 space-x-2">
-          <p className="text-xl text-primary font-semibold">
-            ${wishlistItem?.price}
-          </p>
-          <p className="text-sm text-gray-400 line-through">
-            ${Math.ceil(wishlistItem?.price + 1)}
+          </h2>
+          <p className="text-gray-500 text-sm">
+            Availability: <span className="text-green-600">In Stock</span>
           </p>
         </div>
-        <div className="flex items-center">
-          <ProductRatings rating={wishlistItem?.ratings} />
-          <div className="text-xs text-gray-500 ml-3">
-            ({wishlistItem?.ratings} )
-          </div>
+        <div className="text-primary text-lg font-semibold">
+          ${wishlistItem?.price}
         </div>
-      </div>
-      <div className="flex gap-4">
-        <button
-          onClick={() => handleWishlist(_id, "remove")}
-          className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
-        >
-          Remove
-        </button>
         <button
           onClick={() => handleCartAdd(_id, "add")}
-          className="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition"
+          className="px-6 py-2 text-center text-sm text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium"
         >
-          Add to cart
+          add to cart
+        </button>
+
+        <button
+          onClick={() => handleWishlist(_id, "remove")}
+          className="text-gray-600 cursor-pointer hover:text-primary"
+        >
+          <i className="fa-solid fa-trash"></i>
         </button>
       </div>
     </div>
