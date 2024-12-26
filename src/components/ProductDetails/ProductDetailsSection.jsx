@@ -2,7 +2,7 @@ import ProductRatings from "../ProductRatings";
 
 const ProductDetailsSection = ({ product }) => {
   return (
-    <div className="container grid grid-cols-2 gap-6">
+    <div className="container grid md:grid-cols-2 gap-6">
       <div>
         <div className="w-full h-auto">
           {product?.image ? (

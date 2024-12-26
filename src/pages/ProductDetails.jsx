@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Breadcrumb from "../components/Shop/Breadcrumb";
-import ProductDetailsSection from "../components/ProductDetails/ProductDetailsSection";
-import Description from "../components/ProductDetails/Description";
-import ShopCard from "../components/ShopCard";
 import { useSearchParams } from "react-router-dom";
+import Description from "../components/ProductDetails/Description";
+import ProductDetailsSection from "../components/ProductDetails/ProductDetailsSection";
+import Breadcrumb from "../components/Shop/Breadcrumb";
+import ShopCard from "../components/ShopCard";
 import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
 
 const ProductDetails = () => {
@@ -34,7 +34,7 @@ const ProductDetails = () => {
         <h2 className="text-2xl font-medium text-gray-800 uppercase mb-6">
           Related products
         </h2>
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
           <ShopCard />
           <ShopCard />
           <ShopCard />

@@ -8,8 +8,8 @@ const Login = () => {
   const navigate = useNavigate();
   if (user) navigate("/");
   return (
-    <div className="contain py-16 h-screen">
-      <div className="max-w-lg mx-auto shadow px-6 py-7 rounded overflow-hidden">
+    <div className="container py-16 md:h-screen">
+      <div className="max-w-lg mx-auto shadow px-6 py-7 rounded h-max overflow-hidden">
         <h2 className="text-2xl uppercase font-medium mb-1">Login</h2>
         <p className="text-gray-600 mb-6 text-sm">welcome back customer</p>
         <LoginForm />
@@ -22,7 +22,7 @@ const Login = () => {
         </div>
         {/* social sign-in or sign-up */}
         <SocialLoginCard type="login" />
-        <p className="mt-4 text-center text-gray-600">
+        <p className="mt-4 text-center text-gray-600 ">
           Don&apos;t have account?
           <Link to="/register" className="text-primary">
             Register now

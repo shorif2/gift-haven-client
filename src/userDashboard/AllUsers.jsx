@@ -33,12 +33,12 @@ const AllUsers = () => {
   if (loading) {
     return <Loading />;
   }
-  console.log(allUser);
+
   return (
     <div>
       <h1 className="text-lg pb-4">All users</h1>
 
-      <div className="flex justify-between items-center border p-4">
+      <div className="hidden lg:flex justify-between items-center border p-4">
         <div className="w-full max-w-xl relative flex">
           <span className="absolute left-4 top-2 text-lg text-gray-400">
             <i className="fa-solid fa-magnifying-glass"></i>
@@ -67,9 +67,9 @@ const AllUsers = () => {
         {allUser?.map((user) => (
           <div
             key={user._id}
-            className="w-full border p-4 flex gap-4 justify-between"
+            className="w-full border p-4 flex flex-col lg:flex-row gap-4 justify-center lg:justify-between text-center items-center"
           >
-            <div className="avatar flex gap-4 w-1/4">
+            <div className="avatar flex flex-col lg:flex-row gap-4 md:w-1/4">
               <div className="w-24 flex justify-center items-center text-xl border rounded">
                 <i className="fa-regular fa-user"></i>
               </div>
@@ -78,11 +78,11 @@ const AllUsers = () => {
                 <p>{user?.name}</p>
               </div>
             </div>
-            <div className="w-1/4">
+            <div className="md:w-1/4">
               <p className="font-medium">Account Type</p>
               <p>{user?.role}</p>
             </div>
-            <div className="w-1/4">
+            <div className="md:w-1/4">
               <p className="font-medium">Status</p>
               <p
                 className={
@@ -92,7 +92,7 @@ const AllUsers = () => {
                 {user?.status}
               </p>
             </div>
-            <div className="text-sm flex gap-4 justify-end items-center w-1/4">
+            <div className="text-sm flex gap-4 font-medium justify-end items-center md:w-1/4">
               {user?.status === "pending" && (
                 <button
                   onClick={() => handleAction(user._id, "approved")}
@@ -115,7 +115,7 @@ const AllUsers = () => {
               </button>
               <button
                 onClick={() => handleAction(user._id, "remove")}
-                className="border px-2 py-1 h-min rounded bg-yellow-500"
+                className="border px-2 text-white py-1 h-min rounded bg-yellow-500"
               >
                 Remove
               </button>

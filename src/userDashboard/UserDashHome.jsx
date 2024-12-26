@@ -20,7 +20,7 @@ const UserDashHome = () => {
             <p className="text-gray-500">Los Angeles, California, USA</p>
           </div>
         </div>
-        <button className=" flex gap-4 items-center px-4 py-1 text-sm border rounded h-min hover:text-primary">
+        <button className=" flex gap-2 items-center px-4 py-1 text-sm border rounded h-min hover:text-primary">
           <i className="fa-regular fa-pen-to-square"></i>Edit
         </button>
       </div>
@@ -37,7 +37,7 @@ const UserDashHome = () => {
               <p>{userDetails?.name}</p>
             </div>
           </div>
-          <div className="rounded-full flex gap-4 text-gray-500 w-1/2">
+          <div className="rounded-full flex flex-col md:flex-row gap-4 text-gray-500 lg:w-1/2">
             <div className="space-y-2 w-1/2">
               <h2>Email Address</h2>
               <p>{userDetails?.email}</p>
@@ -54,14 +54,14 @@ const UserDashHome = () => {
             </div>
           </div>
         </div>
-        <button className=" flex gap-4 items-center px-4 py-1 text-sm border rounded h-min hover:text-primary">
+        <button className="flex gap-2 items-center px-4 py-1 text-sm border rounded h-min hover:text-primary">
           <i className="fa-regular fa-pen-to-square"></i>Edit
         </button>
       </div>
       <div className="border p-5 rounded-lg flex justify-between">
         <div className="rounded-full space-y-4 w-full">
           <h2 className="font-medium text-lg">Shipping Address</h2>
-          <div className="rounded-full flex justify-start gap-4 text-gray-500 w-1/2">
+          <div className="rounded-full flex flex-col md:flex-row justify-start gap-4 text-gray-500 lg:w-1/2">
             <div className="space-y-2 w-1/2">
               <h2>Country</h2>
               <p>United State of America</p>
@@ -71,7 +71,7 @@ const UserDashHome = () => {
               <p>California,USA</p>
             </div>
           </div>
-          <div className="rounded-full flex gap-4 text-gray-500 w-1/2">
+          <div className="rounded-full flex flex-col md:flex-row gap-4 text-gray-500 md:w-1/2">
             <div className="space-y-2 w-1/2">
               <h2>Postal Code</h2>
               <p>ERT 62574</p>
@@ -82,7 +82,7 @@ const UserDashHome = () => {
             </div>
           </div>
         </div>
-        <button className=" flex gap-4 items-center px-4 py-1 text-sm border rounded h-min hover:text-primary">
+        <button className=" flex gap-2 items-center px-4 py-1 text-sm border rounded h-min hover:text-primary">
           <i className="fa-regular fa-pen-to-square"></i>Edit
         </button>
       </div>
