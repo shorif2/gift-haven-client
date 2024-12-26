@@ -6,8 +6,10 @@ const Footer = () => {
           <div className="w-full px-4 sm:w-2/3 lg:w-3/12">
             <div className="mb-10 w-full">
               <div className="mb-8  max-w-[160px] flex gap-4 justify-start items-center">
-                <img src="/gf-logo.png" alt="logo" className="w-10 " />
-                <h3 className="text-lg font-medium">Gift Haven</h3>
+                <div className="flex justify-center items-center gap-2">
+                  <i className="fa-brands fa-shopify text-4xl text-primary"></i>
+                  <h1 className="text-2xl font-medium font">Gift Haven</h1>
+                </div>
               </div>
               <p className="mb-7 text-base text-body-color dark:text-dark-6">
                 Sed ut perspiciatis undmnis is iste natus error sit amet

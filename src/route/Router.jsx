@@ -1,21 +1,21 @@
 import { createBrowserRouter } from "react-router-dom";
-import HomeLayout from "../layout/HomeLayout";
-import Home from "../pages/Home";
-import Contact from "../pages/Contact";
-import About from "../pages/About";
-import Shop from "../pages/Shop";
-import Login from "../pages/Login";
-import Register from "../pages/Register";
 import DashboardLayout from "../layout/DashboardLayout";
-import UserDashHome from "../userDashboard/UserDashHome";
+import HomeLayout from "../layout/HomeLayout";
+import About from "../pages/About";
+import Contact from "../pages/Contact";
+import ErrorPage from "../pages/ErrorPage";
+import Home from "../pages/Home";
+import Login from "../pages/Login";
+import ProductDetails from "../pages/ProductDetails";
+import Register from "../pages/Register";
+import Shop from "../pages/Shop";
+import PrivetRouter from "../privetRoute/PrivetRouter";
 import AddProduct from "../userDashboard/AddProduct";
-import Wishlist from "../userDashboard/Wishlist";
-import Cart from "../userDashboard/Cart";
 import AllProduct from "../userDashboard/AllProduct";
 import AllUsers from "../userDashboard/AllUsers";
-import PrivetRouter from "../privetRoute/PrivetRouter";
-import ErrorPage from "../pages/ErrorPage";
-import ProductDetails from "../pages/ProductDetails";
+import Cart from "../userDashboard/Cart";
+import UserDashHome from "../userDashboard/UserDashHome";
+import Wishlist from "../userDashboard/Wishlist";
 
 const router = createBrowserRouter([
   {
@@ -53,7 +53,10 @@ const router = createBrowserRouter([
         element: <AddProduct />,
       },
       { path: "/dashboard/wishlist", element: <Wishlist /> },
-      { path: "/dashboard/all-users", element: <AllUsers /> },
+      {
+        path: "/dashboard/all-users",
+        element: <AllUsers />,
+      },
       { path: "/dashboard/cart", element: <Cart /> },
     ],
   },

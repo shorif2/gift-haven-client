@@ -6,8 +6,8 @@ import Loading from "../pages/Loading";
 const AllUsers = () => {
   const [allUser, setAllUser] = useState([]);
   const [loading, setLoading] = useState(false);
+  const token = localStorage.getItem("access-token");
   useEffect(() => {
-    const token = localStorage.getItem("access-token");
     const fetchUser = async () => {
       setLoading(true);
       const res = await useAxiosBaseUrl.get("/all-users", {
@@ -16,16 +16,16 @@ const AllUsers = () => {
         },
       });
       setAllUser(res.data);
-      console.log(res);
       setLoading(false);
     };
     fetchUser();
-  }, []);
+  }, [token]);
 
   const handleAction = async (userId, action) => {
     const res = await useAxiosBaseUrl.patch(
       `/user?userId=${userId}&action=${action}`
     );
+    console.log(res);
     if (res.data.modifiedCount) {
       toast.success(`Successfully ${action}`);
     }
@@ -33,6 +33,7 @@ const AllUsers = () => {
   if (loading) {
     return <Loading />;
   }
+  console.log(allUser);
   return (
     <div>
       <h1 className="text-lg pb-4">All users</h1>
@@ -69,8 +70,8 @@ const AllUsers = () => {
             className="w-full border p-4 flex gap-4 justify-between"
           >
             <div className="avatar flex gap-4 w-1/4">
-              <div className="w-24 rounded">
-                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+              <div className="w-24 flex justify-center items-center text-xl border rounded">
+                <i className="fa-regular fa-user"></i>
               </div>
               <div>
                 <p className="font-medium">Name</p>

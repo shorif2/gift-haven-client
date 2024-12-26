@@ -20,7 +20,9 @@ const UserDashHome = () => {
             <p className="text-gray-500">Los Angeles, California, USA</p>
           </div>
         </div>
-        <button className="px-4 py- text-sm border rounded h-min">Edit</button>
+        <button className=" flex gap-4 items-center px-4 py-1 text-sm border rounded h-min hover:text-primary">
+          <i className="fa-regular fa-pen-to-square"></i>Edit
+        </button>
       </div>
       <div className="border p-5 rounded-lg flex justify-between">
         <div className="rounded-full space-y-4 w-full">
@@ -52,7 +54,9 @@ const UserDashHome = () => {
             </div>
           </div>
         </div>
-        <button className="px-4 py- text-sm border rounded h-min">Edit</button>
+        <button className=" flex gap-4 items-center px-4 py-1 text-sm border rounded h-min hover:text-primary">
+          <i className="fa-regular fa-pen-to-square"></i>Edit
+        </button>
       </div>
       <div className="border p-5 rounded-lg flex justify-between">
         <div className="rounded-full space-y-4 w-full">
@@ -78,7 +82,9 @@ const UserDashHome = () => {
             </div>
           </div>
         </div>
-        <button className="px-4 py- text-sm border rounded h-min">Edit</button>
+        <button className=" flex gap-4 items-center px-4 py-1 text-sm border rounded h-min hover:text-primary">
+          <i className="fa-regular fa-pen-to-square"></i>Edit
+        </button>
       </div>
     </div>
   );

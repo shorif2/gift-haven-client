@@ -1,12 +1,15 @@
 import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import Loading from "../pages/Loading";
 
-const SellerRoute = ({ children }) => {
+const AdminRoute = ({ children }) => {
   const location = useLocation();
 
   const { user, loading, userData } = useAuth();
-  console.log(user, userData);
-  if (!loading && userData?.role === "seller") {
+  if (loading) {
+    return <Loading />;
+  }
+  if (userData?.role === "admin") {
     return children;
   }
 
@@ -15,4 +18,4 @@ const SellerRoute = ({ children }) => {
   );
 };
 
-export default SellerRoute;
+export default AdminRoute;

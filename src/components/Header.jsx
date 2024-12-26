@@ -1,20 +1,32 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import { useShop } from "../hooks/useShop";
 
 const Header = () => {
   const { userDetails, loading } = useAuth();
+  const { setSearchTerm } = useShop();
+  const navigate = useNavigate();
   if (loading) {
     return;
   }
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setSearchTerm(e.target.search.value);
+    e.target.search.value = "";
+    navigate("/shop");
+  };
   return (
     <header className="py-4 shadow-sm bg-white">
       <div className="container flex items-center justify-between">
         <div className="flex justify-center items-center gap-2">
-          <img src="/gf-logo.png" alt="Logo" className="w-10" />
-          <h1 className="text-lg font-medium font">Gift Haven</h1>
+          <i className="fa-brands fa-shopify text-4xl text-primary"></i>
+          <h1 className="text-2xl font-medium font">Gift Haven</h1>
         </div>
 
-        <div className="hidden md:flex justify-center w-full max-w-xl relative ">
+        <form
+          onSubmit={handleSearch}
+          className="hidden md:flex justify-center w-full max-w-xl relative "
+        >
           <span className="absolute left-4 md:left-16 lg:left-4 top-3 text-lg text-gray-400">
             <i className="fa-solid fa-magnifying-glass"></i>
           </span>
@@ -25,10 +37,13 @@ const Header = () => {
             className="w-full md:w-1/2 lg:w-full border border-primary border-r-0 pl-12 py-3 pr-3 rounded-l-md focus:outline-none hidden md:flex"
             placeholder="search"
           />
-          <button className="bg-primary border border-primary text-white px-8 rounded-r-md hover:bg-transparent hover:text-primary transition">
+          <button
+            type="submit"
+            className="bg-primary border border-primary text-white px-8 rounded-r-md hover:bg-transparent hover:text-primary transition"
+          >
             Search
           </button>
-        </div>
+        </form>
 
         <div className="flex items-center space-x-4">
           <div className="text-center text-gray-700 hover:text-primary transition relative">

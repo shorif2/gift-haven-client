@@ -14,8 +14,10 @@ const DashboardLayout = () => {
       <div className="grid items-start col-span-2 border  h-screen p-10">
         <div className="flex flex-col gap-4">
           <div className="flex justify-center items-center gap-2 h-min">
-            <img src="/gf-logo.png" alt="Logo" className="w-10" />
-            <h1 className="text-lg font-medium">Gift Haven</h1>
+            <div className="flex justify-center items-center gap-2">
+              <i className="fa-brands fa-shopify text-3xl text-primary"></i>
+              <h1 className="text-xl font-medium font">Gift Haven</h1>
+            </div>
           </div>
           <Link
             className="border p-2 text-center hover:border-red-500"
