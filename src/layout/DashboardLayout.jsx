@@ -21,6 +21,7 @@ const DashboardLayout = () => {
           <List size={20} />
         </button>
       </div>
+      {/* sidebar for mobile device */}
       {show && (
         <div className="absolute bg-white md:hidden items-start lg:col-span-1 p-4  border w-52  h-screen z-10">
           <div className="flex flex-col gap-4">
@@ -54,8 +55,9 @@ const DashboardLayout = () => {
           </div>
         </div>
       )}
+      {/* sidebar */}
       <div className="hidden md:grid items-start lg:col-span-2 md:col-span-3 border  h-screen p-6 lg:p-10">
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 ">
           <div className="flex justify-start items-center gap-2 h-min">
             <div className="flex justify-start items-center gap-2">
               <i className="fa-brands fa-shopify text-3xl text-primary"></i>
@@ -63,7 +65,7 @@ const DashboardLayout = () => {
             </div>
           </div>
           <Link
-            className="flex justify-start items-center gap-2 border p-2 text-center hover:border-red-500 rounded"
+            className="flex justify-start items-center gap-2 border p-3 text-center hover:border-primary rounded"
             to="/dashboard"
           >
             <User size={20} /> Overview
@@ -71,17 +73,18 @@ const DashboardLayout = () => {
           <RoleBaseRoute />
           <Link
             to="/"
-            className="flex justify-start items-center gap-2 border p-2 text-center hover:border-red-500 rounded"
+            className="flex justify-start items-center gap-2 border p-3 text-center hover:border-primary rounded"
           >
             <HouseLine size={20} />
             Home
           </Link>
-          <div className="flex justify-start items-center gap-2 border p-2 text-center hover:border-red-500 rounded">
+          <div className="flex justify-start items-center gap-2 border p-3 text-center hover:border-primary rounded">
             <SignOut size={20} />
             <Logout type="dash" />
           </div>
         </div>
       </div>
+      {/* outlet */}
       <div className="grid col-span-12 md:col-span-9 lg:col-span-10 border  px-6 py-10 md:p-10 h-screen  overflow-y-auto">
         <Outlet />
       </div>

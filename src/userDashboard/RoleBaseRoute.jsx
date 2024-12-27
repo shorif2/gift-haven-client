@@ -52,7 +52,7 @@ const RoleBaseRoute = () => {
       {route[userDetails?.role]?.map((route) => (
         <Link
           key={route.id}
-          className="border flex gap-2 justify-start items-center p-2 text-center hover:border-red-500 rounded"
+          className="border flex gap-2 justify-start items-center p-3 text-center hover:border-primary rounded"
           to={route.routeLink}
         >
           {route?.icon}
