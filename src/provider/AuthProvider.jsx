@@ -80,6 +80,7 @@ const AuthProvider = ({ children }) => {
 
   // google sign in
   const googleSingIn = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import WishlistCart from "../components/Buyer/WishlistCart";
 import useAuth from "../hooks/useAuth";
 import useAxiosBaseUrl from "../hooks/useAxiosBaseUrl";
@@ -28,10 +29,22 @@ const Wishlist = () => {
   }
   return (
     <div>
-      <h1>Wishlist</h1>
+      <h1 className="font-medium">Wishlist</h1>
       {!wishlist.length && (
         <>
-          <h1>No Item in wishlist</h1>
+          <div className="flex justify-center items-center  w-full h-1/2">
+            <div className="flex flex-col justify-center">
+              <h1 className="pb-4 text-lg font-medium">
+                You have no item in wishlist
+              </h1>
+              <Link
+                to="/shop"
+                className="border px-3 py-1 w-fit  bg-primary text-white rounded"
+              >
+                Shop Now
+              </Link>
+            </div>
+          </div>
         </>
       )}
       <div className="mx-auto space-y-4 max-w-6xl">

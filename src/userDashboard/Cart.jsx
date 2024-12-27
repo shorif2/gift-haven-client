@@ -32,7 +32,9 @@ const Cart = () => {
       <div className="max-w-2xl w-full bg-white rounded-xl shadow-lg p-6">
         {!userDetails?.cart?.length ? (
           <div>
-            <h1 className="pb-4">You have no item in cart</h1>
+            <h1 className="pb-4 text-lg font-medium">
+              You have no item in cart
+            </h1>
             <Link
               to="/shop"
               className="border px-3 py-1  bg-primary text-white rounded"
