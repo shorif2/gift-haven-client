@@ -1,4 +1,4 @@
-const Copywrite = () => {
+const CopyWrite = () => {
   return (
     <div className="bg-gray-800 py-4">
       <div className="container flex items-center justify-between">
@@ -11,4 +11,4 @@ const Copywrite = () => {
   );
 };
 
-export default Copywrite;
+export default CopyWrite;
