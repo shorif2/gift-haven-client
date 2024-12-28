@@ -1,7 +1,7 @@
 import toast from "react-hot-toast";
 import useAxiosBaseUrl from "../../hooks/useAxiosBaseUrl";
 
-const ShoppingCart = ({ cartItem, userId }) => {
+const ShoppingCart = ({ cartItem, userId, onRemove }) => {
   const handleRemoveCart = async (id, action) => {
     const res = await useAxiosBaseUrl.put("/manage-cart", {
       productId: id,
@@ -9,6 +9,7 @@ const ShoppingCart = ({ cartItem, userId }) => {
       action: action,
     });
     if (res.data.modifiedCount) {
+      onRemove(id);
       toast.success("Item remove from cart");
     } else if (res.data.modifiedCount === 0) {
       toast.error("Item already remove");

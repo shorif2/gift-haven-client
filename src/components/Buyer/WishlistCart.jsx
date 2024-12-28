@@ -1,8 +1,9 @@
 import toast from "react-hot-toast";
 import useAxiosBaseUrl from "../../hooks/useAxiosBaseUrl";
 
-const WishlistCart = ({ wishlistItem, userId }) => {
+const WishlistCart = ({ wishlistItem, userId, onRemove }) => {
   const { _id } = wishlistItem;
+
   const handleCartAdd = async (id, action) => {
     if (!userId) {
       toast.error("please going first");
@@ -22,17 +23,13 @@ const WishlistCart = ({ wishlistItem, userId }) => {
     }
   };
   const handleWishlist = async (id, action) => {
-    if (!userId) {
-      toast.error("please going first");
-      return;
-    }
     const res = await useAxiosBaseUrl.put("/manage-wishlist", {
       productId: id,
       userId: userId,
       action: action,
     });
     if (res.data.modifiedCount) {
-      console.log(res.data);
+      onRemove(id);
       toast.success("Item remove from wishlist");
     } else if (res.data.modifiedCount === 0) {
       toast.error("Item already remove");
