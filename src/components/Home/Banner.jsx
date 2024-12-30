@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Banner = () => {
   return (
     <div
@@ -16,12 +18,13 @@ const Banner = () => {
           odio
         </p>
         <div className="mt-12">
-          <button
+          <Link
+            to="/shop"
             className="bg-primary border border-primary text-white px-8 py-3 font-medium 
               rounded-md hover:bg-transparent hover:text-primary"
           >
             Shop Now
-          </button>
+          </Link>
         </div>
       </div>
     </div>

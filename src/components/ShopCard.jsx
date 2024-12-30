@@ -101,9 +101,12 @@ const ShopCard = ({ product, userId }) => {
       </div>
       <div className="pt-4 pb-3 px-4">
         <div>
-          <h4 className="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
+          <Link
+            to={`/product-details/?id=${product?._id}`}
+            className="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition"
+          >
             {name}
-          </h4>
+          </Link>
         </div>
         <div className="flex items-baseline mb-1 space-x-2">
           <p className="text-xl text-primary font-semibold">${price}</p>

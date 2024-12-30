@@ -36,7 +36,7 @@ const Wishlist = () => {
   }
   return (
     <div>
-      <h1 className="font-medium">Wishlist</h1>
+      <h1 className="font-medium text-lg">Wishlist</h1>
       <>
         {!wishlist.length && (
           <>
@@ -47,7 +47,8 @@ const Wishlist = () => {
                 </h1>
                 <Link
                   to="/shop"
-                  className="border px-3 py-1 w-fit  bg-primary text-white rounded"
+                  className="bg-primary border w-max border-primary text-white px-8 py-3 font-medium 
+              rounded-md hover:bg-transparent hover:text-primary"
                 >
                   Shop Now
                 </Link>

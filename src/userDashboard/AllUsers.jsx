@@ -25,9 +25,13 @@ const AllUsers = () => {
     const res = await useAxiosBaseUrl.patch(
       `/user?userId=${userId}&action=${action}`
     );
-    console.log(res);
     if (res.data.modifiedCount) {
       toast.success(`Successfully ${action}`);
+      setAllUser((prev) => {
+        return prev.map((user) => {
+          return user._id === userId ? { ...user, status: action } : user;
+        });
+      });
     }
   };
   if (loading) {
@@ -92,34 +96,42 @@ const AllUsers = () => {
                 {user?.status}
               </p>
             </div>
-            <div className="text-sm flex gap-4 font-medium justify-end items-center md:w-1/4">
-              {user?.status === "pending" && (
-                <button
-                  onClick={() => handleAction(user._id, "approved")}
-                  className="border px-2 py-1 h-min rounded bg-green-500"
-                >
-                  Approve
-                </button>
-              )}
+            {user.role === "admin" ? (
+              <div className="text-sm flex gap-4 font-medium justify-end items-center md:w-1/4">
+                <div className="border px-2 py-1 h-min rounded bg-green-500 text-white">
+                  Admin
+                </div>
+              </div>
+            ) : (
+              <div className="text-sm flex gap-4 font-medium justify-end items-center md:w-1/4">
+                {user?.status === "pending" && (
+                  <button
+                    onClick={() => handleAction(user._id, "approved")}
+                    className="border px-2 py-1 h-min rounded bg-green-500"
+                  >
+                    Approve
+                  </button>
+                )}
 
-              <button
-                onClick={() =>
-                  handleAction(
-                    user._id,
-                    user.status === "blocked" ? "approved" : "blocked"
-                  )
-                }
-                className="border px-2 py-1 h-min rounded bg-red-500 text-white"
-              >
-                {user.status === "blocked" ? "Unblock" : "Block"}
-              </button>
-              <button
-                onClick={() => handleAction(user._id, "remove")}
-                className="border px-2 text-white py-1 h-min rounded bg-yellow-500"
-              >
-                Remove
-              </button>
-            </div>
+                <button
+                  onClick={() =>
+                    handleAction(
+                      user._id,
+                      user.status === "blocked" ? "approved" : "blocked"
+                    )
+                  }
+                  className="border px-2 py-1 h-min rounded bg-red-500 text-white"
+                >
+                  {user.status === "blocked" ? "Unblock" : "Block"}
+                </button>
+                <button
+                  onClick={() => handleAction(user._id, "remove")}
+                  className="border px-2 text-white py-1 h-min rounded bg-yellow-500"
+                >
+                  Remove
+                </button>
+              </div>
+            )}
           </div>
         ))}
       </div>

@@ -42,13 +42,14 @@ const Cart = () => {
     <div className=" bg-gray-100 flex items-center justify-center p-4">
       <div className="max-w-2xl w-full bg-white rounded-xl shadow-lg p-6">
         {!cartItem?.products?.length ? (
-          <div>
-            <h1 className="pb-4 text-lg font-medium">
+          <div className="p-4">
+            <h1 className="pb-6 text-lg font-medium">
               You have no item in cart
             </h1>
             <Link
               to="/shop"
-              className="border px-3 py-1  bg-primary text-white rounded"
+              className="bg-primary border border-primary text-white px-8 py-3 font-medium 
+              rounded-md hover:bg-transparent hover:text-primary"
             >
               Shop Now
             </Link>
