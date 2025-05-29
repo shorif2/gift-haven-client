@@ -4,27 +4,27 @@ This repository contains the source code for [Gift Haven](https://gift-haven-cli
 
 # Features
 
-## General Features
+### General Features
 
 - User Authentication:
 - Password validation (minimum 8 characters, includes uppercase and lowercase letters, a number, and a special character).
 - Social login/registration with Google.
 
-## Role-Based User Management:
+### Role-Based User Management:
 
 - Buyer: Can browse and purchase products.
 - Seller: Can add, edit, and manage their own products.
 - Admin: Can manage users (promote/demote roles, delete users).
 
-## Responsive Design:
+### Responsive Design:
 
 - Fully responsive on mobile and desktop/laptop devices.
 
-## Application Pages
+### Application Pages
 
 - Home Page: Includes six sections like hero section, featured products, testimonials, categories, FAQs, and contact info.
 
-## Products Page:
+### Products Page:
 
 - Display all products with filtering and sorting options.
 - Product detail page for each product.
